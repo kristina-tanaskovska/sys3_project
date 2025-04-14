@@ -34,7 +34,7 @@ class App extends React.Component {
               this.state.lessons
                 .map(le => <LessonCard name={le.text}
                   description={le.title}
-                  key={le.name} />)
+                  key={le.value} />)
             }
           </div>
         </div>
