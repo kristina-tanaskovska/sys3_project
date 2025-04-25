@@ -1,5 +1,7 @@
 import { useState } from 'react';
-import axios from 'axios';
+// import axios from 'axios';
+import api from '../../services/api';
+import { useNavigate } from 'react-router';
 
 function CreateNews() {
     // const [title, setTitle] = useState('My Title');
@@ -8,14 +10,26 @@ function CreateNews() {
         title: undefined,
         slug: '',
         text: ''
-    })
+    });
+    const navigate = useNavigate();
 
-    const createNews = () => {
-        axios.post('http://88.200.63.148:5009/novice', {
-            ...state
-        })
-            .then(res => console.log(res))
-            .catch(err => console.error(err));
+    const createNews = async () => {
+        try {
+            const { data } = await api.post('/novice', {
+                ...state
+            });
+            // .then(res => console.log(res))
+            // .catch(err => console.error(err));
+            const {
+                id,
+                news
+            } = data;
+
+            navigate(`/success/${id}`)
+
+        } catch (error) {
+            console.error(err);
+        }
     }
 
     return (
