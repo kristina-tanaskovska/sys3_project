@@ -1,14 +1,15 @@
 import TabItem from './TabItem';
 import { Outlet } from 'react-router';
 
-function TabContainer({children}) {
+function TabContainer({ children }) {
     return (
         <div className='tab-navigator'>
             <div className='tab-container'>
                 {
                     getTabs().map(tab => <TabItem
                         title={tab.title}
-                        url={tab.url} />)
+                        url={tab.url}
+                        key={tab.title} />)
                 }
             </div>
             {children}
@@ -29,6 +30,10 @@ const getTabs = () => {
         {
             title: 'Login',
             url: '/login'
+        },
+        {
+            title: 'Counter',
+            url: '/counter'
         },
     ]
 }

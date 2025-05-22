@@ -3,7 +3,7 @@ import { useState } from 'react';
 import api from '../../services/api';
 import { useNavigate } from 'react-router';
 
-function CreateNews() {
+function CreateNews(props) {
     // const [title, setTitle] = useState('My Title');
     // const [slug, setSlug] = useState();
     const [state, setState] = useState({
