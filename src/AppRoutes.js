@@ -6,6 +6,10 @@ import CreateNews from './components/news/CreateNews';
 import SuccessPage from './components/shared/SuccessPage';
 import Home from './components/home/Home';
 import Counter from './components/counter/Counter';
+import Register from './components/Register';
+import Login from './components/Login';
+
+
 
 class AppRoutes extends Component {
     render() {
@@ -18,6 +22,8 @@ class AppRoutes extends Component {
                         <Route path='news-create' element={<CreateNews />} />
                         <Route path='success/:id' element={<SuccessPage />} />
                         <Route path='counter' element={<Counter />} />
+                        <Route path='/register' element={<Register/>}/>
+                        <Route path='/login' element={<Login/>}/>
                     </Route>
                 </Routes>
             </BrowserRouter>

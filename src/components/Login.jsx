@@ -18,6 +18,7 @@ const handleChange = (e) => {
 };
 
 const navigate = useNavigate()
+axios.defaults.withCredentials = true;
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('Form submitted:', formData);
