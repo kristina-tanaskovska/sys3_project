@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import './Register.css';
 
 function Register() {
   const [formData, setFormData] = useState({
@@ -15,34 +16,31 @@ function Register() {
       [e.target.name]: e.target.value
     }));
   };
-const handleCreateAccount = () => {
-  console.log("Redirecting to login page...");
-};
 
-  const navigate = useNavigate()
-const handleSubmit = (e) => {
-  e.preventDefault();
-  console.log('Form submitted:', formData);
+  const navigate = useNavigate();
 
-  axios.post('http://88.200.63.148:6868/register', formData)
-    .then(res => {
-      if (res.data.Status === "Success") {
-        navigate('/login');
-      } else {
-        alert("Error: " + (res.data.Error || "Unknown error"));
-      }
-    })
-    .catch(err => {
-      console.log("Registration error:", err);
-      alert("Error occurred while registering.");
-    });
-};
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log('Form submitted:', formData);
 
+    axios.post('http://88.200.63.148:6868/register', formData)
+      .then(res => {
+        if (res.data.Status === "Success") {
+          navigate('/login');
+        } else {
+          alert("Error: " + (res.data.Error || "Unknown error"));
+        }
+      })
+      .catch(err => {
+        console.log("Registration error:", err);
+        alert("Error occurred while registering.");
+      });
+  };
 
   return (
-    <div style={{ maxWidth: '400px', margin: 'auto', padding: '1rem' }}>
+    <div className="register-container">
       <h2>Register</h2>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="register-form">
         <input
           type="text"
           name="name"
@@ -50,7 +48,6 @@ const handleSubmit = (e) => {
           value={formData.name}
           onChange={handleChange}
           required
-          style={{ display: 'block', width: '100%', marginBottom: '1rem' }}
         />
         <input
           type="email"
@@ -59,7 +56,6 @@ const handleSubmit = (e) => {
           value={formData.email}
           onChange={handleChange}
           required
-          style={{ display: 'block', width: '100%', marginBottom: '1rem' }}
         />
         <input
           type="password"
@@ -68,10 +64,9 @@ const handleSubmit = (e) => {
           value={formData.password}
           onChange={handleChange}
           required
-          style={{ display: 'block', width: '100%', marginBottom: '1rem' }}
         />
-        <button type="submit" style={{ marginRight: '1rem' }}>Submit</button>
-        <Link to="/login" type="button" onClick={handleCreateAccount}>Create New Account</Link>
+        <button type="submit">Submit</button>
+        <Link to="/login" className="link">Already have an account? Login</Link>
       </form>
     </div>
   );

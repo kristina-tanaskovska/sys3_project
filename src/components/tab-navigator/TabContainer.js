@@ -1,41 +1,27 @@
-import TabItem from './TabItem';
-import { Outlet } from 'react-router';
+import React from 'react';
+import { Link } from 'react-router-dom';
+import './TabContainer.css';
 
-function TabContainer({ children }) {
-    return (
-        <div className='tab-navigator'>
-            <div className='tab-container'>
-                {
-                    getTabs().map(tab => <TabItem
-                        title={tab.title}
-                        url={tab.url}
-                        key={tab.title} />)
-                }
-            </div>
-            {children}
+function TabContainer({ children, auth, handleLogout }) {
+  return (
+    <div className="tab-navigator">
+      <nav className="navbar">
+        <div className="nav-logo">MySite</div>
+        <div className="nav-links">
+          <Link to="/">Home</Link>
+          {!auth ? (
+            <>
+              <Link to="/login">Login</Link>
+              <Link to="/register">Register</Link>
+            </>
+          ) : (
+            <button onClick={handleLogout} className="logout-btn">Logout</button>
+          )}
         </div>
-    )
-}
-
-const getTabs = () => {
-    return [
-        {
-            title: 'Home',
-            url: '/',
-        },
-        {
-            title: 'Create News',
-            url: '/news-create',
-        },
-        {
-            title: 'Login',
-            url: '/login'
-        },
-        {
-            title: 'Counter',
-            url: '/counter'
-        },
-    ]
+      </nav>
+      <main className="tab-content">{children}</main>
+    </div>
+  );
 }
 
 export default TabContainer;
