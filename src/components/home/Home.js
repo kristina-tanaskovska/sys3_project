@@ -9,7 +9,7 @@ function Home(){
     axios.defaults.withCredentials = true;
 
     useEffect(()=>{
-        axios.get('http://localhost:6868')
+        axios.get('http://88.200.63.148:6868')
         .then(res =>{
             if(res.data.Status === "Sucess"){
                 setAuth(true)
@@ -27,7 +27,7 @@ function Home(){
     }, [])
 
     const handleLogout = ()=> {
-        axios.get('http://localhost:6868/logout')
+        axios.get('http://88.200.63.148/logout')
         .then(res =>{
             location.reload(true);
         }).catch(err => console.log(err));

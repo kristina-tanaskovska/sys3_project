@@ -19,20 +19,25 @@ const handleChange = (e) => {
 
 const navigate = useNavigate()
 axios.defaults.withCredentials = true;
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log('Form submitted:', formData);
-    axios.post('http://localhost:6868/login', formData)
-    .then(res =>{
-        if(res.data.Status === "Sucess"){
-            navigate('/')
-        }else{
-            alert("Error")
-        }
-    })// console.log(res))
+const handleSubmit = (e) => {
+  e.preventDefault();
+  console.log('Form submitted:', formData);
 
-    .catch(err => console.log(err));
-     };
+  axios.post('http://88.200.63.148:6868/login', formData)
+    .then(res => {
+      console.log(res.data); // Debug
+      if (res.data.Status === "Success") {
+        navigate('/');
+      } else {
+        alert(res.data.Error || "Login failed.");
+      }
+    })
+    .catch(err => {
+      console.error("Login error:", err);
+      alert("Something went wrong.");
+    });
+};
+
 
   const handleCreateAccount = () => {
  };

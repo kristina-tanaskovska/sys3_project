@@ -15,25 +15,29 @@ function Register() {
       [e.target.name]: e.target.value
     }));
   };
+const handleCreateAccount = () => {
+  console.log("Redirecting to login page...");
+};
 
   const navigate = useNavigate()
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log('Form submitted:', formData);
-    axios.post('http://localhost:6868/register', formData)
-    .then(res =>{
-        if(res.data.Status === "Sucess"){
-            navigate('/login')
-        }else{
-            alert("Error")
-        }
-    })// console.log(res))
+const handleSubmit = (e) => {
+  e.preventDefault();
+  console.log('Form submitted:', formData);
 
-    .catch(err => console.log(err));
-     };
+  axios.post('http://88.200.63.148:6868/register', formData)
+    .then(res => {
+      if (res.data.Status === "Success") {
+        navigate('/login');
+      } else {
+        alert("Error: " + (res.data.Error || "Unknown error"));
+      }
+    })
+    .catch(err => {
+      console.log("Registration error:", err);
+      alert("Error occurred while registering.");
+    });
+};
 
-  const handleCreateAccount = () => {
- };
 
   return (
     <div style={{ maxWidth: '400px', margin: 'auto', padding: '1rem' }}>
