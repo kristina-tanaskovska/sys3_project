@@ -12,7 +12,7 @@ function Home(){
     useEffect(()=>{
         axios.get('http://88.200.63.148:6868')
         .then(res =>{
-            if(res.data.Status === "Sucess"){
+            if(res.data.Status === "Success"){
                 setAuth(true)
                 setName(res.data.name)
                 //navigate('/login')
@@ -41,7 +41,15 @@ function Home(){
       <div className="hero-section">
         <h1>{auth ? `Welcome back, ${name}!` : "Welcome to MySite"}</h1>
         <p>{auth ? "Glad to have you here." : "Please log in or register to explore more."}</p>
+        {auth && (
+    <Link to="/garden">
+      <button className="go-to-garden-button">
+        Go to Garden
+      </button>
+    </Link>
+  )}
       </div>
+
 
       <div className="content-section">
         <h2>About This Website</h2>

@@ -8,6 +8,7 @@ import Home from './components/home/Home';
 import Counter from './components/counter/Counter';
 import Register from './components/Register';
 import Login from './components/Login';
+import Garden from './components/Garden';
 
 
 
@@ -24,6 +25,8 @@ class AppRoutes extends Component {
                         <Route path='counter' element={<Counter />} />
                         <Route path='/register' element={<Register/>}/>
                         <Route path='/login' element={<Login/>}/>
+                        <Route path='/garden' element={<Garden />} /> 
+          
                     </Route>
                 </Routes>
             </BrowserRouter>
