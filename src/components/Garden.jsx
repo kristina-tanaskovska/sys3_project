@@ -101,12 +101,25 @@ function Garden() {
 
       <div className="card-grid">
         {cards.map((card) => (
-          <div className="card" key={card.id}>
-             <button className="delete-button" onClick={() => handleDeleteClick(card)}>×</button>
-            <img src={card.image_url} alt={card.title} />
-            <h3>{card.title}</h3>
-            <p>{card.description}</p>
-          </div>
+            <div key={card.id} className="card">
+              <button className="delete-button" onClick={(e) => {
+              e.stopPropagation();
+              handleDeleteClick(card);
+              }}>×</button>
+
+              <div className='card-link'>
+                <img src={card.image_url} alt={card.title} />
+                <h3>{card.title}</h3>
+                <p>{card.description}</p>
+                    <button onClick={() => window.location.href = `/card/${card.id}`}>
+                      Check Statistics
+                    </button>
+              </div>
+              <div to={`/card/${card.id}`} className="card-link">
+   
+              </div>
+            </div>
+
         ))}
 
         <div className="card add-card" onClick={handleAddCard}>

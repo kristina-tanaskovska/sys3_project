@@ -9,16 +9,22 @@ function TabContainer({ children, auth, handleLogout }) {
         <div className="nav-logo">MySite</div>
         <div className="nav-links">
           <Link to="/">Home</Link>
+
           {!auth ? (
             <>
               <Link to="/login">Login</Link>
               <Link to="/register">Register</Link>
             </>
           ) : (
-            <button onClick={handleLogout} className="logout-btn">Logout</button>
+            <>
+              <Link to="/garden">Garden</Link>
+              <Link to="/history">History</Link>
+              <button onClick={handleLogout} className="logout-btn">Logout</button>
+            </>
           )}
         </div>
       </nav>
+
       <main className="tab-content">{children}</main>
     </div>
   );
