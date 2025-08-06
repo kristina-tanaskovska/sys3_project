@@ -111,9 +111,15 @@ function Garden() {
                 <img src={card.image_url} alt={card.title} />
                 <h3>{card.title}</h3>
                 <p>{card.description}</p>
+                <div className='card-buttons'>
+
                     <button onClick={() => window.location.href = `/card/${card.id}`}>
                       Check Statistics
                     </button>
+                    <button onClick={() => window.location.href = `/history/${card.id}`}>
+                      History
+                    </button>
+                </div>
               </div>
               <div to={`/card/${card.id}`} className="card-link">
    
@@ -165,8 +171,6 @@ function Garden() {
     </div>
   </div>
 )}
-
-
     </div>
   );
 }
