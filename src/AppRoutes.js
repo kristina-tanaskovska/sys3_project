@@ -11,7 +11,7 @@ import Login from './components/Login';
 import Garden from './components/Garden';
 import CardStatus from './components/CardStatus';
 import HistoryPage from './components/HistoryPage';
-
+import SettingsPage from './components/SettingsPage';
 
 
 
@@ -31,6 +31,7 @@ class AppRoutes extends Component {
                         <Route path='/garden' element={<Garden />} /> 
                         <Route path="/card/:id" element={<CardStatus />} />
                         <Route path="/history/:id" element={<HistoryPage />} />
+                        <Route path="/settings/:cardId" element={<SettingsPage/>}/>
                     </Route>
                 </Routes>
             </BrowserRouter>

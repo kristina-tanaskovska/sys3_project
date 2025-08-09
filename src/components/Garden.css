@@ -169,3 +169,20 @@ body {
   font-weight: bold;
   cursor: pointer;
 }
+
+
+.settings-button {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background: #fff;
+  border-radius: 50%;
+  padding: 6px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.settings-button:hover {
+  background: #f0f0f0;
+}

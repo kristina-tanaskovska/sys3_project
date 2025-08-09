@@ -1,8 +1,11 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import { FaCog } from "react-icons/fa";
 import './Garden.css';
+import { useNavigate } from 'react-router-dom';
 
 function Garden() {
+  const navigate = useNavigate();
   const [cards, setCards] = useState([]);
   const [cardToDelete, setCardToDelete] = useState(null);
   const [showModal, setShowModal] = useState(false);
@@ -102,6 +105,19 @@ function Garden() {
       <div className="card-grid">
         {cards.map((card) => (
             <div key={card.id} className="card">
+              
+            <button className="settings-button"
+            onClick={(e) => {
+            e.stopPropagation();
+            navigate(`/settings/${card.id}`);
+            }}
+            aria-label={`Settings for ${card.title}`}
+            title="Settings">
+            <FaCog size={18} />
+            </button>
+
+
+
               <button className="delete-button" onClick={(e) => {
               e.stopPropagation();
               handleDeleteClick(card);
