@@ -75,8 +75,8 @@ return (
       </div>
 
       <div className="button-group">
-        <button type="submit" className="btn btn-submit">Submit</button>
-        <Link to="/" type="button" className="btn btn-signin">Sign In</Link>
+        <button type="submit" className="btn btn-submit">Login</button>
+        <Link to="/" type="button" className="btn btn-signin">Create account</Link>
       </div>
     </form>
   </div>

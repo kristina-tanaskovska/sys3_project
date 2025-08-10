@@ -166,7 +166,7 @@ function SettingsPage() {
       </div>
 
       <button className="save-button" onClick={handleSave} disabled={saving}>
-        {saving ? "Saving..." : "Save Settings"}
+        {saving ? "Saving..." : "Save"}
       </button>
     </div>
   );

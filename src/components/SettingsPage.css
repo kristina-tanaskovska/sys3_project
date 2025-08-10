@@ -82,7 +82,7 @@
 }
 
 .toggle input:checked + .toggle-slider {
-  background: #34d399;
+  background: #4CAF50;
 }
 
 .toggle input:checked + .toggle-slider::after {

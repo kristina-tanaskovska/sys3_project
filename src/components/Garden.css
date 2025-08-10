@@ -158,17 +158,23 @@ body {
 
 .card-buttons {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   gap: 0.5rem;
   margin-top: 1rem;
+ 
 }
 
 .card-buttons button {
-  flex: 1;
+  width: 100%; 
   padding: 0.5rem;
   font-weight: bold;
   cursor: pointer;
+  background-color: #388e3c;
+  border-radius: 10px;
+  border: none;
+  color:#f0f0f0;
 }
+
 
 
 .settings-button {
@@ -177,8 +183,9 @@ body {
   left: 8px;
   background: #fff;
   border-radius: 50%;
+  border: none;
+  outline: none;
   padding: 6px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
   cursor: pointer;
   transition: background 0.2s;
 }

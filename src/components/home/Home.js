@@ -9,8 +9,8 @@ function Home() {
   return (
     <div className="home-page">
       <div className="hero-section">
-        <h1>{auth ? `Welcome back, ${name}!` : "Welcome to MySite"}</h1>
-        <p>{auth ? "Glad to have you here." : "Please log in or register to explore more."}</p>
+        <h1>{auth ? `Welcome back, ${name}!` : "Welcome to your Garden"}</h1>
+        <p>{auth ? "Glad to have you here." : "Please log in or register to manage your plants."}</p>
         {auth && (
           <Link to="/garden">
             <button className="go-to-garden-button">
@@ -23,19 +23,24 @@ function Home() {
       <div className="content-section">
         <h2>About This Website</h2>
         <p>
-          This is a sample web application built with React, Express, and modern CSS. Users can register,
-          log in, and access protected content once authenticated. The design is mobile-friendly and provides
-          an intuitive user experience.
+            Welcome to our smart Garden Management Application — designed to help you monitor and control your garden’s
+             environment remotely with ease. Our platform enables you to track key parameters such as temperature, humidity,
+              and soil moisture in real-time, ensuring your plants thrive no matter where you are.
         </p>
         <p>
-          When a user is authenticated, a personalized message appears along with an option to log out.
-          Unauthenticated users are prompted to sign in or create an account. The layout features a
-          responsive navigation bar and scrollable content area for long explanations.
+            Beyond monitoring, you can customize minimum and maximum thresholds for each parameter and receive instant alerts if 
+            any values fall outside your specified limits. This proactive approach helps you take timely action to protect your garden.
         </p>
         <p>
-          Feel free to explore and test the login and registration functionality. Everything you need is just
-          a click away in the menu bar.
+            Additionally, the app allows you to remotely operate devices like air conditioners, humidifiers, and watering systems, 
+            giving you full control over your garden’s conditions at your fingertips. Whether you’re at home or away, managing your garden
+             has never been more convenient or effective.
         </p>
+        <p>
+            Explore the intuitive dashboard, configure your preferences, and stay connected to your garden 24/7. 
+            Your plants deserve the best care, and we’re here to make that simple and accessible.
+        </p>
+
       </div>
     </div>
   );

@@ -130,7 +130,7 @@ function Garden() {
                 <div className='card-buttons'>
 
                     <button onClick={() => window.location.href = `/card/${card.id}`}>
-                      Check Statistics
+                      Current status
                     </button>
                     <button onClick={() => window.location.href = `/history/${card.id}`}>
                       History

@@ -7,7 +7,7 @@ function TabContainer({ children, auth, handleLogout }) {
   return (
     <div className="tab-navigator">
       <nav className="navbar">
-        <div className="nav-logo">MySite</div>
+        <div className="nav-logo">MyGarden</div>
         <div className="nav-links">
           <Link to="/">Home</Link>
 
