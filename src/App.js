@@ -3,10 +3,14 @@ import React, { useEffect, useState } from 'react';
 import TabContainer from './components/tab-navigator/TabContainer';
 import { Outlet } from 'react-router';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+
 
 function App() {
   const [auth, setAuth] = useState(false);
   const [name, setName] = useState('');
+  const navigate = useNavigate();
+
 
   useEffect(() => {
     axios.get('http://88.200.63.148:6868', { withCredentials: true })
@@ -23,13 +27,16 @@ function App() {
       });
   }, []);
 
-  const handleLogout = () => {
-    axios.get('http://88.200.63.148/logout', { withCredentials: true })
-      .then(() => {
-        setAuth(false);
-        setName('');
-      })
-      .catch(err => console.log(err));
+  const handleLogout = async () => {
+    try {
+      await axios.get('http://88.200.63.148:6868/logout', { withCredentials: true });
+      setAuth(false);
+      setName("");
+      navigate('/');
+      //window.location.reload();
+    } catch (err) {
+      console.error("Logout failed:", err);
+    }
   };
 
   return (

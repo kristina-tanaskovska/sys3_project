@@ -29,6 +29,7 @@ const handleSubmit = (e) => {
       console.log(res.data); // Debug
       if (res.data.Status === "Success") {
         navigate('/');
+        window.location.reload();
       } else {
         alert(res.data.Error || "Login failed.");
       }
