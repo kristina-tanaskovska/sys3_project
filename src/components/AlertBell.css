@@ -1,0 +1,27 @@
+.alert-wrapper {
+     position: relative; 
+     display: inline-block; }
+.alert-count   { 
+    position: absolute; 
+    top:-4px; right:-4px;
+    background:red;
+     color:#fff; border-radius:50%;
+    font-size:0.6rem; 
+    padding:0 4px; }
+.alert-dropdown{ 
+    position:absolute; 
+    right:0; 
+    margin-top:8px;      
+    background:#fff; 
+    border:1px solid #ddd; 
+    width:220px;
+    max-height:300px;
+    overflow:auto; 
+    z-index:9999; }
+.alert-item    { 
+    padding:6px 8px; 
+    border-bottom:1px solid #9d9999;
+    color: rgb(4, 103, 42);  }
+.alert-item button{ 
+    float:right; 
+    font-size:0.7rem; }

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './TabContainer.css';
+import AlertBell from "../AlertBell.jsx"; 
 
 function TabContainer({ children, auth, handleLogout }) {
   return (
@@ -18,7 +19,7 @@ function TabContainer({ children, auth, handleLogout }) {
           ) : (
             <>
               <Link to="/garden">Garden</Link>
-              <Link to="/history">History</Link>
+              <AlertBell/>
               <button onClick={handleLogout} className="logout-btn">Logout</button>
             </>
           )}
