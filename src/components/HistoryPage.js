@@ -5,6 +5,8 @@ import {
   LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer
 } from 'recharts';
 import './HistoryPage.css';
+import DataInsertionToggle from './DataInsertionToggle';
+
 
 
 
@@ -27,6 +29,7 @@ function HistoryPage() {
    console.log(cardId);
   return (
     <div className="history-dashboard">
+      <DataInsertionToggle />
       <h2>Plant History (Card ID: {cardId})</h2>
 
       <div className="range-select">

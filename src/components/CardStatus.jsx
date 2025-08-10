@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import './CardStatus.css'; 
+import DataInsertionToggle from './DataInsertionToggle';
+
 
 function CardStatus() {
   const { id } = useParams();
@@ -26,6 +28,7 @@ function CardStatus() {
 
   return (
     <div className="card-status-container">
+      <DataInsertionToggle />
       <h2>Card Statistics (ID: {id})</h2>
       <div className="stats-grid">
         <div className="stat-box temperature">
